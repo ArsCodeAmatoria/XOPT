@@ -23,12 +23,17 @@ jobs:
           cd crowdloan-ui
           npm ci
           
+      - name: Run tests
+        run: |
+          cd crowdloan-ui
+          npm test
+          
       - name: Build crowdloan
         run: |
           cd crowdloan-ui
           npm run build
           
-      - name: Run tests
+      - name: Run lint
         run: |
           cd crowdloan-ui
-          npm test 
+          npm run lint 
