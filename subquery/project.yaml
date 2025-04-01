@@ -1,0 +1,80 @@
+specVersion: 1.0.0
+name: xopt
+version: 1.0.0
+description: 'XOPT Protocol - Cross-chain Options Trading'
+repository: 'https://github.com/ArsCodeAmatoria/xopt'
+
+schema:
+  file: ./schema.graphql
+
+network:
+  chainId: '2000' # Kusama
+  endpoint: 'wss://kusama-rpc.polkadot.io'
+  dictionary: 'https://api.subquery.network/sq/subquery/dictionary-polkadot'
+
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleOptionCreated
+          kind: substrate/Event
+          filter:
+            module: options
+            event: OptionCreated
+        - handler: handleOptionExercised
+          kind: substrate/Event
+          filter:
+            module: options
+            event: OptionExercised
+        - handler: handleOptionSettled
+          kind: substrate/Event
+          filter:
+            module: options
+            event: OptionSettled
+        - handler: handleVaultCreated
+          kind: substrate/Event
+          filter:
+            module: vaults
+            event: VaultCreated
+        - handler: handleVaultLiquidated
+          kind: substrate/Event
+          filter:
+            module: vaults
+            event: VaultLiquidated
+        - handler: handlePriceUpdated
+          kind: substrate/Event
+          filter:
+            module: oracle
+            event: PriceUpdated
+        - handler: handleGovernanceProposed
+          kind: substrate/Event
+          filter:
+            module: governance
+            event: Proposed
+        - handler: handleGovernanceVoted
+          kind: substrate/Event
+          filter:
+            module: governance
+            event: Voted
+        - handler: handleGovernanceExecuted
+          kind: substrate/Event
+          filter:
+            module: governance
+            event: Executed
+
+templates:
+  - name: options
+    kind: substrate/Runtime
+    network:
+      chainId: '2000'
+      endpoint: 'wss://kusama-rpc.polkadot.io'
+    mapping:
+      handlers:
+        - handler: handleOptionCreated
+          kind: substrate/Event
+          filter:
+            module: options
+            event: OptionCreated
+      file: ./dist/options.js 

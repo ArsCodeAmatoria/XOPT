@@ -1,0 +1,80 @@
+type Option @entity {
+  id: ID!
+  creator: String!
+  holder: String
+  strike: BigInt!
+  expiry: BigInt!
+  premium: BigInt!
+  type: String! # "call" or "put"
+  status: String! # "active", "exercised", "expired", "settled"
+  exercisePrice: BigInt
+  settlementPrice: BigInt
+  createdAt: BigInt!
+  updatedAt: BigInt!
+  blockNumber: BigInt!
+}
+
+type Vault @entity {
+  id: ID!
+  owner: String!
+  collateral: BigInt!
+  ratio: BigInt!
+  status: String! # "active", "liquidated", "closed"
+  liquidations: [Liquidation!]! @derivedFrom(field: "vault")
+  createdAt: BigInt!
+  updatedAt: BigInt!
+  blockNumber: BigInt!
+}
+
+type Liquidation @entity {
+  id: ID!
+  vault: Vault!
+  liquidator: String!
+  collateralSeized: BigInt!
+  debtRepaid: BigInt!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+}
+
+type Price @entity {
+  id: ID!
+  asset: String!
+  price: BigInt!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+}
+
+type Proposal @entity {
+  id: ID!
+  creator: String!
+  title: String!
+  description: String!
+  startBlock: BigInt!
+  endBlock: BigInt!
+  status: String! # "active", "passed", "failed", "executed"
+  votes: [Vote!]! @derivedFrom(field: "proposal")
+  executionBlock: BigInt
+  executed: Boolean!
+  createdAt: BigInt!
+  updatedAt: BigInt!
+  blockNumber: BigInt!
+}
+
+type Vote @entity {
+  id: ID!
+  proposal: Proposal!
+  voter: String!
+  support: Boolean!
+  votingPower: BigInt!
+  blockNumber: BigInt!
+}
+
+type _Meta_ @entity {
+  id: ID!
+  lastProcessedBlock: BigInt!
+  lastProcessedTimestamp: BigInt!
+  totalOptions: BigInt!
+  totalVaults: BigInt!
+  totalProposals: BigInt!
+  totalVotes: BigInt!
+} 

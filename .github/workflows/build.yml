@@ -1,0 +1,104 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-chain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      
+      - name: Cache Rust dependencies
+        uses: Swatinem/rust-cache@v2
+      
+      - name: Build chain
+        run: |
+          cd chain
+          cargo build --verbose
+      
+      - name: Run chain tests
+        run: |
+          cd chain
+          cargo test --verbose
+
+  build-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm ci
+      
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm run build
+      
+      - name: Run frontend tests
+        run: |
+          cd frontend
+          npm test
+
+  build-crowdloan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install crowdloan dependencies
+        run: |
+          cd crowdloan-ui
+          npm ci
+      
+      - name: Build crowdloan
+        run: |
+          cd crowdloan-ui
+          npm run build
+      
+      - name: Run crowdloan tests
+        run: |
+          cd crowdloan-ui
+          npm test
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: |
+          cd frontend && npm ci
+          cd ../crowdloan-ui && npm ci
+      
+      - name: Run ESLint
+        run: |
+          cd frontend && npm run lint
+          cd ../crowdloan-ui && npm run lint 

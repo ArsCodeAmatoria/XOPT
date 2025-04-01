@@ -1,0 +1,39 @@
+{
+  "name": "xopt-subquery",
+  "version": "1.0.0",
+  "description": "SubQuery project for XOPT Protocol",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "codegen": "subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --build",
+    "dev": "subql codegen && subql build && docker-compose up --build",
+    "build:docker": "docker-compose pull && docker-compose up --build -d",
+    "prepack": "rm -rf lib && tsc -b",
+    "pack": "subql pack",
+    "test": "jest"
+  },
+  "homepage": "https://github.com/ArsCodeAmatoria/xopt",
+  "repository": "github:ArsCodeAmatoria/xopt",
+  "files": [
+    "dist",
+    "schema.graphql",
+    "project.yaml"
+  ],
+  "author": "XOPT Protocol",
+  "license": "MIT",
+  "devDependencies": {
+    "@polkadot/api": "^10.11.2",
+    "@subql/cli": "^0.28.0",
+    "@subql/types": "^0.12.0",
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.5",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@subql/node": "^0.28.0",
+    "typeorm": "^0.3.17"
+  }
+} 
