@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ['@polkadot/api', '@polkadot/extension-inject'],
+  experimental: {
+    appDir: true,
+  },
   webpack: (config) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,

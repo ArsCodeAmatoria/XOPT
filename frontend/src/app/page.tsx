@@ -4,10 +4,12 @@ import { Stats } from '@/components/Stats'
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <Features />
-      <Stats />
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      <div className="w-full">
+        <Hero />
+        <Features />
+        <Stats />
+      </div>
     </main>
   )
 } 
