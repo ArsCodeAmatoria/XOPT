@@ -18,6 +18,16 @@ jobs:
           node-version: '18'
           cache: 'npm'
           
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            frontend/node_modules
+            crowdloan-ui/node_modules
+          key: ${{ runner.os }}-lint-${{ hashFiles('frontend/package-lock.json', 'crowdloan-ui/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-lint-
+          
       - name: Install dependencies
         run: |
           cd frontend && npm ci --legacy-peer-deps
@@ -40,6 +50,11 @@ jobs:
           override: true
           components: rustfmt, clippy
           cache: true
+          
+      - name: Cache Rust dependencies
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: chain -> target
           
       - name: Rust format check
         run: |

@@ -18,6 +18,16 @@ jobs:
           node-version: '18'
           cache: 'npm'
           
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            frontend/node_modules
+            frontend/.next/cache
+          key: ${{ runner.os }}-frontend-${{ hashFiles('frontend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-frontend-
+          
       - name: Install dependencies
         run: |
           cd frontend
@@ -36,4 +46,10 @@ jobs:
       - name: Run lint
         run: |
           cd frontend
-          npm run lint -- --max-warnings=0 
+          npm run lint -- --max-warnings=0
+          
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: frontend-build
+          path: frontend/.next 

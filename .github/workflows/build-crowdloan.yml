@@ -18,6 +18,16 @@ jobs:
           node-version: '18'
           cache: 'npm'
           
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            crowdloan-ui/node_modules
+            crowdloan-ui/.next/cache
+          key: ${{ runner.os }}-crowdloan-${{ hashFiles('crowdloan-ui/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-crowdloan-
+          
       - name: Install dependencies
         run: |
           cd crowdloan-ui
@@ -36,4 +46,10 @@ jobs:
       - name: Run lint
         run: |
           cd crowdloan-ui
-          npm run lint -- --max-warnings=0 
+          npm run lint -- --max-warnings=0
+          
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: crowdloan-build
+          path: crowdloan-ui/.next 
