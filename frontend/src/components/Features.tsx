@@ -1,85 +1,63 @@
+'use client';
+
 import { motion } from 'framer-motion'
-import { Shield, Zap, Coins, Network } from 'lucide-react'
+import { Shield, Zap, Lock, BarChart } from 'lucide-react'
 
 const features = [
   {
-    name: 'Zero Slippage',
-    description: 'Trade options with no price impact, ensuring you get the exact price you want.',
-    icon: Zap,
-  },
-  {
-    name: 'Minimal Fees',
-    description: 'Low transaction fees and no hidden costs, making options trading more accessible.',
-    icon: Coins,
-  },
-  {
-    name: 'Maximum Security',
-    description: 'Built on Polkadot for enterprise-grade security and reliability.',
+    name: 'Secure Infrastructure',
+    description: 'Built on Polkadot for maximum security and reliability. Your assets are protected by advanced cryptographic security.',
     icon: Shield,
   },
   {
-    name: 'Cross-Chain',
-    description: 'Access options markets across multiple chains through Polkadot\'s interoperability.',
-    icon: Network,
+    name: 'Zero Slippage',
+    description: 'Trade options with zero slippage and minimal fees. Get the best prices for your trades every time.',
+    icon: Zap,
+  },
+  {
+    name: 'Decentralized',
+    description: 'Fully decentralized protocol with no central authority. Trade with confidence knowing you are in control.',
+    icon: Lock,
+  },
+  {
+    name: 'Advanced Analytics',
+    description: 'Access real-time market data, advanced charts, and trading analytics to make informed decisions.',
+    icon: BarChart,
   },
 ]
 
 export function Features() {
   return (
-    <div className="py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <motion.h2
-            className="text-base font-semibold leading-7 text-primary"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            Trade Faster
-          </motion.h2>
-          <motion.p
-            className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Everything you need to trade options
-          </motion.p>
-          <motion.p
-            className="mt-6 text-lg leading-8 text-muted-foreground"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            XOPT Protocol provides a seamless experience for trading options on any asset, with zero slippage and minimal fees.
-          </motion.p>
-        </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.name}
-                className="flex flex-col"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-              >
-                <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-foreground">
-                  <feature.icon className="h-5 w-5 flex-none text-primary" aria-hidden="true" />
-                  {feature.name}
-                </dt>
-                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-foreground">
-                  <p className="flex-auto">{feature.description}</p>
-                </dd>
-              </motion.div>
-            ))}
-          </dl>
+    <section className="py-20 bg-muted/50">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl font-bold mb-4">Why Choose XOPT Protocol?</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Experience the future of options trading with our cutting-edge platform.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors"
+            >
+              <feature.icon className="h-12 w-12 text-primary mb-4" />
+              <h3 className="text-xl font-semibold mb-2">{feature.name}</h3>
+              <p className="text-muted-foreground">{feature.description}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 } 
