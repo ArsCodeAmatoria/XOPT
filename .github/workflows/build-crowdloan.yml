@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_API_URL: http://localhost:3000
+      NEXT_PUBLIC_CHAIN_ID: 1
     steps:
       - uses: actions/checkout@v3
       
