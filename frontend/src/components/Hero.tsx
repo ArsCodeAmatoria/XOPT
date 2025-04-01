@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react'
 export function Hero() {
   return (
     <div className="relative overflow-hidden bg-background">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background" />
       <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
         <motion.div
           className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8"
@@ -69,13 +70,12 @@ export function Hero() {
           transition={{ delay: 0.6, duration: 0.5 }}
         >
           <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-            <img
-              src="/hero-image.png"
-              alt="App screenshot"
-              width={2432}
-              height={1442}
-              className="w-[76rem] rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10"
-            />
+            <div className="w-[76rem] rounded-md bg-gradient-to-br from-primary/20 to-primary/5 shadow-2xl ring-1 ring-white/10 p-8">
+              <div className="text-center text-muted-foreground">
+                <p className="text-lg">Trading Interface Coming Soon</p>
+                <p className="text-sm mt-2">Connect your wallet to start trading options</p>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
