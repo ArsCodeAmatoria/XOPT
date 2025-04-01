@@ -111,26 +111,47 @@ export default function Home() {
                     <div className="bg-muted p-4 rounded-lg text-center">
                       <div className="font-semibold">Bitcoin (BTC)</div>
                       <p className="text-sm text-muted-foreground">Strike prices: $30K-$100K</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly, Quarterly</p>
                     </div>
                     <div className="bg-muted p-4 rounded-lg text-center">
                       <div className="font-semibold">Ethereum (ETH)</div>
                       <p className="text-sm text-muted-foreground">Strike prices: $2K-$10K</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly, Quarterly</p>
                     </div>
                     <div className="bg-muted p-4 rounded-lg text-center">
                       <div className="font-semibold">Solana (SOL)</div>
                       <p className="text-sm text-muted-foreground">Strike prices: $50-$500</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly</p>
                     </div>
                     <div className="bg-muted p-4 rounded-lg text-center">
                       <div className="font-semibold">Cardano (ADA)</div>
                       <p className="text-sm text-muted-foreground">Strike prices: $0.5-$5</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly</p>
                     </div>
                     <div className="bg-muted p-4 rounded-lg text-center">
                       <div className="font-semibold">Polkadot (DOT)</div>
                       <p className="text-sm text-muted-foreground">Strike prices: $5-$50</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly</p>
                     </div>
                     <div className="bg-muted p-4 rounded-lg text-center">
                       <div className="font-semibold">Avalanche (AVAX)</div>
                       <p className="text-sm text-muted-foreground">Strike prices: $20-$200</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly</p>
+                    </div>
+                    <div className="bg-muted p-4 rounded-lg text-center">
+                      <div className="font-semibold">Polygon (MATIC)</div>
+                      <p className="text-sm text-muted-foreground">Strike prices: $0.5-$5</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly</p>
+                    </div>
+                    <div className="bg-muted p-4 rounded-lg text-center">
+                      <div className="font-semibold">Cosmos (ATOM)</div>
+                      <p className="text-sm text-muted-foreground">Strike prices: $5-$50</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly</p>
+                    </div>
+                    <div className="bg-muted p-4 rounded-lg text-center">
+                      <div className="font-semibold">Chainlink (LINK)</div>
+                      <p className="text-sm text-muted-foreground">Strike prices: $5-$50</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly</p>
                     </div>
                   </div>
                 </div>
@@ -142,26 +163,47 @@ export default function Home() {
                     <div className="bg-muted p-4 rounded-lg text-center">
                       <div className="font-semibold">Uniswap (UNI)</div>
                       <p className="text-sm text-muted-foreground">Strike prices: $5-$50</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly</p>
                     </div>
                     <div className="bg-muted p-4 rounded-lg text-center">
                       <div className="font-semibold">Aave (AAVE)</div>
                       <p className="text-sm text-muted-foreground">Strike prices: $50-$500</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly</p>
                     </div>
                     <div className="bg-muted p-4 rounded-lg text-center">
                       <div className="font-semibold">Compound (COMP)</div>
                       <p className="text-sm text-muted-foreground">Strike prices: $20-$200</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly</p>
                     </div>
                     <div className="bg-muted p-4 rounded-lg text-center">
                       <div className="font-semibold">SushiSwap (SUSHI)</div>
                       <p className="text-sm text-muted-foreground">Strike prices: $1-$10</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly</p>
                     </div>
                     <div className="bg-muted p-4 rounded-lg text-center">
                       <div className="font-semibold">Curve (CRV)</div>
                       <p className="text-sm text-muted-foreground">Strike prices: $0.5-$5</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly</p>
                     </div>
                     <div className="bg-muted p-4 rounded-lg text-center">
                       <div className="font-semibold">Yearn Finance (YFI)</div>
                       <p className="text-sm text-muted-foreground">Strike prices: $5K-$50K</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly</p>
+                    </div>
+                    <div className="bg-muted p-4 rounded-lg text-center">
+                      <div className="font-semibold">Maker (MKR)</div>
+                      <p className="text-sm text-muted-foreground">Strike prices: $500-$5000</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly</p>
+                    </div>
+                    <div className="bg-muted p-4 rounded-lg text-center">
+                      <div className="font-semibold">Synthetix (SNX)</div>
+                      <p className="text-sm text-muted-foreground">Strike prices: $2-$20</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly</p>
+                    </div>
+                    <div className="bg-muted p-4 rounded-lg text-center">
+                      <div className="font-semibold">Balancer (BAL)</div>
+                      <p className="text-sm text-muted-foreground">Strike prices: $5-$50</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly</p>
                     </div>
                   </div>
                 </div>
@@ -173,10 +215,12 @@ export default function Home() {
                     <div className="bg-muted p-4 rounded-lg text-center">
                       <div className="font-semibold">USD Coin (USDC)</div>
                       <p className="text-sm text-muted-foreground">Strike prices: $0.95-$1.05</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly</p>
                     </div>
                     <div className="bg-muted p-4 rounded-lg text-center">
                       <div className="font-semibold">Tether (USDT)</div>
                       <p className="text-sm text-muted-foreground">Strike prices: $0.95-$1.05</p>
+                      <p className="text-xs text-muted-foreground mt-1">Weekly, Monthly</p>
                     </div>
                   </div>
                 </div>
@@ -189,6 +233,10 @@ export default function Home() {
                     • Strike prices are dynamically adjusted based on current market prices
                     <br />
                     • New trading pairs are regularly added based on market demand
+                    <br />
+                    • Minimum contract size varies by asset
+                    <br />
+                    • Liquidity requirements apply for market making
                   </p>
                 </div>
               </div>
