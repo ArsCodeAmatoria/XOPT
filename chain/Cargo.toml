@@ -11,6 +11,8 @@ members = [
 ]
 
 [workspace.dependencies]
+sc-cli = { version = "0.1.0", git = "https://github.com/paritytech/substrate.git", tag = "v21.0.0" }
+sc-service = { version = "0.1.0", git = "https://github.com/paritytech/substrate.git", tag = "v21.0.0" }
 sp-core = { version = "21.0.0", default-features = false }
 sp-runtime = { version = "21.0.0", default-features = false }
 sp-std = { version = "21.0.0", default-features = false }

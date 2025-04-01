@@ -4,17 +4,21 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-sp-core = { version = "21.0.0", default-features = false }
-sp-runtime = { version = "21.0.0", default-features = false }
-sp-std = { version = "21.0.0", default-features = false }
-sp-io = { version = "21.0.0", default-features = false }
-sp-api = { version = "21.0.0", default-features = false }
-frame-support = { version = "21.0.0", default-features = false }
-frame-system = { version = "21.0.0", default-features = false }
-frame-system-rpc-runtime-api = { version = "21.0.0", default-features = false }
-frame-try-runtime = { version = "21.0.0", default-features = false }
-pallet-balances = { version = "21.0.0", default-features = false }
-pallet-timestamp = { version = "21.0.0", default-features = false }
-pallet-transaction-payment = { version = "21.0.0", default-features = false }
-pallet-transaction-payment-rpc-runtime-api = { version = "21.0.0", default-features = false }
-pallet-sudo = { version = "21.0.0", default-features = false } 
+sp-core = { workspace = true }
+sp-runtime = { workspace = true }
+sp-std = { workspace = true }
+sp-io = { workspace = true }
+sp-api = { workspace = true }
+frame-support = { workspace = true }
+frame-system = { workspace = true }
+frame-system-rpc-runtime-api = { workspace = true }
+frame-try-runtime = { workspace = true }
+pallet-balances = { workspace = true }
+pallet-timestamp = { workspace = true }
+pallet-transaction-payment = { workspace = true }
+pallet-transaction-payment-rpc-runtime-api = { workspace = true }
+pallet-sudo = { workspace = true }
+pallet-options = { path = "../pallets/options" }
+
+[build-dependencies]
+substrate-wasm-builder = { version = "5.0.0-dev" } 

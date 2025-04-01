@@ -4,23 +4,23 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-sc-cli = { version = "0.1.0", path = "../../substrate" }
-sc-service = { version = "0.1.0", path = "../../substrate" }
-sp-core = { version = "21.0.0", default-features = false }
-sp-runtime = { version = "21.0.0", default-features = false }
-sp-consensus = { version = "21.0.0", default-features = false }
-sp-consensus-aura = { version = "21.0.0", default-features = false }
-sp-consensus-babe = { version = "21.0.0", default-features = false }
-sp-consensus-grandpa = { version = "21.0.0", default-features = false }
-sp-consensus-pow = { version = "21.0.0", default-features = false }
-sp-consensus-slots = { version = "21.0.0", default-features = false }
-sp-consensus-uncles = { version = "21.0.0", default-features = false }
-sp-finality-grandpa = { version = "21.0.0", default-features = false }
-sp-finality-tracker = { version = "21.0.0", default-features = false }
-sp-inherents = { version = "21.0.0", default-features = false }
-sp-offchain = { version = "21.0.0", default-features = false }
-sp-session = { version = "21.0.0", default-features = false }
-sp-staking = { version = "21.0.0", default-features = false }
-sp-timestamp = { version = "21.0.0", default-features = false }
-sp-transaction-pool = { version = "21.0.0", default-features = false }
-sp-version = { version = "21.0.0", default-features = false } 
+sc-cli = { workspace = true }
+sc-service = { workspace = true }
+sp-core = { workspace = true }
+sp-runtime = { workspace = true }
+sp-consensus = { workspace = true }
+sp-consensus-aura = { workspace = true }
+sp-consensus-babe = { workspace = true }
+sp-consensus-grandpa = { workspace = true }
+sp-consensus-pow = { workspace = true }
+sp-consensus-slots = { workspace = true }
+sp-consensus-uncles = { workspace = true }
+sp-finality-grandpa = { workspace = true }
+sp-finality-tracker = { workspace = true }
+sp-inherents = { workspace = true }
+sp-offchain = { workspace = true }
+sp-session = { workspace = true }
+sp-staking = { workspace = true }
+sp-timestamp = { workspace = true }
+sp-transaction-pool = { workspace = true }
+sp-version = { workspace = true } 
