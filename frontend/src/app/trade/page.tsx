@@ -2,37 +2,30 @@ import { motion } from 'framer-motion'
 
 export default function TradePage() {
   return (
-    <main className="container mx-auto px-4 py-8">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <motion.div
+        className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-4xl mx-auto"
       >
         <h1 className="text-4xl font-bold mb-8">Trade Options</h1>
-        <div className="bg-card rounded-lg shadow-lg p-6">
-          <p className="text-muted-foreground mb-4">
-            Trading interface coming soon. Connect your wallet to start trading options.
-          </p>
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 border rounded-lg">
-                <h3 className="font-semibold mb-2">Asset</h3>
-                <p className="text-muted-foreground">Select the asset to trade</p>
-              </div>
-              <div className="p-4 border rounded-lg">
-                <h3 className="font-semibold mb-2">Strike Price</h3>
-                <p className="text-muted-foreground">Set your strike price</p>
-              </div>
-              <div className="p-4 border rounded-lg">
-                <h3 className="font-semibold mb-2">Expiry</h3>
-                <p className="text-muted-foreground">Choose expiry date</p>
-              </div>
-              <div className="p-4 border rounded-lg">
-                <h3 className="font-semibold mb-2">Amount</h3>
-                <p className="text-muted-foreground">Enter trade amount</p>
-              </div>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="p-6 bg-card rounded-lg shadow-lg">
+            <h2 className="text-2xl font-semibold mb-4">Select Asset</h2>
+            <p className="text-muted-foreground">Coming soon...</p>
+          </div>
+          <div className="p-6 bg-card rounded-lg shadow-lg">
+            <h2 className="text-2xl font-semibold mb-4">Set Strike Price</h2>
+            <p className="text-muted-foreground">Coming soon...</p>
+          </div>
+          <div className="p-6 bg-card rounded-lg shadow-lg">
+            <h2 className="text-2xl font-semibold mb-4">Choose Expiry</h2>
+            <p className="text-muted-foreground">Coming soon...</p>
+          </div>
+          <div className="p-6 bg-card rounded-lg shadow-lg">
+            <h2 className="text-2xl font-semibold mb-4">Enter Amount</h2>
+            <p className="text-muted-foreground">Coming soon...</p>
           </div>
         </div>
       </motion.div>

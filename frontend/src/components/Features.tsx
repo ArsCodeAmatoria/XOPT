@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Shield, Zap, Coins, Lock } from 'lucide-react'
+import { Shield, Zap, Coins, Network } from 'lucide-react'
 
 const features = [
   {
@@ -9,18 +9,18 @@ const features = [
   },
   {
     name: 'Minimal Fees',
-    description: 'Lowest fees in the industry, with transparent pricing and no hidden costs.',
+    description: 'Low transaction fees and no hidden costs, making options trading more accessible.',
     icon: Coins,
   },
   {
     name: 'Maximum Security',
-    description: 'Built on Polkadot with battle-tested security and regular audits.',
+    description: 'Built on Polkadot for enterprise-grade security and reliability.',
     icon: Shield,
   },
   {
-    name: 'Self-Custody',
-    description: 'Full control of your assets with non-custodial trading.',
-    icon: Lock,
+    name: 'Cross-Chain',
+    description: 'Access options markets across multiple chains through Polkadot\'s interoperability.',
+    icon: Network,
   },
 ]
 
@@ -54,7 +54,7 @@ export function Features() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Experience the future of options trading with our decentralized protocol. Built for traders, by traders.
+            XOPT Protocol provides a seamless experience for trading options on any asset, with zero slippage and minimal fees.
           </motion.p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -62,6 +62,7 @@ export function Features() {
             {features.map((feature, index) => (
               <motion.div
                 key={feature.name}
+                className="flex flex-col"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

@@ -1,13 +1,23 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { Providers } from './providers'
+import { Navigation } from '@/components/Navigation'
+import { Footer } from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'XOPT Protocol - Decentralized Options Trading',
-  description: 'Trade options on any asset with zero slippage and minimal fees. Built on Polkadot for maximum security and interoperability.',
+  title: 'XOPT Protocol',
+  description: 'Decentralized options trading protocol built on Polkadot',
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' }
+    ],
+    apple: [
+      { url: '/favicon.svg', type: 'image/svg+xml' }
+    ]
+  }
 }
 
 export default function RootLayout({
@@ -18,7 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Navigation />
+        {children}
+        <Footer />
       </body>
     </html>
   )
