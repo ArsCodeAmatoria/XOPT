@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "buildCommand": "cd $DIRECTORY && npm run build",
+  "installCommand": "cd $DIRECTORY && npm install",
+  "framework": "nextjs",
+  "outputDirectory": "$DIRECTORY/.next",
+  "regions": ["sfo1"],
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  }
+} 
