@@ -38,4 +38,9 @@ jobs:
       - name: Run clippy
         run: |
           cd chain
-          cargo clippy -- -D warnings 
+          cargo clippy -- -D warnings
+          
+      - name: Run rustfmt
+        run: |
+          cd chain
+          cargo fmt --all -- --check 

@@ -1,0 +1,12 @@
+[package]
+name = "pallet-options"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sp-core = { version = "21.0.0", default-features = false }
+sp-runtime = { version = "21.0.0", default-features = false }
+sp-std = { version = "21.0.0", default-features = false }
+frame-support = { version = "21.0.0", default-features = false }
+frame-system = { version = "21.0.0", default-features = false }
+pallet-balances = { version = "21.0.0", default-features = false } 
