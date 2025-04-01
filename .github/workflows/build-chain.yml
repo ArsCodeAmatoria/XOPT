@@ -18,6 +18,7 @@ jobs:
           toolchain: stable
           override: true
           components: rustfmt, clippy
+          cache: true
           
       - name: Cache Rust dependencies
         uses: Swatinem/rust-cache@v2
@@ -32,4 +33,9 @@ jobs:
       - name: Run tests
         run: |
           cd chain
-          cargo test --verbose 
+          cargo test --verbose
+          
+      - name: Run clippy
+        run: |
+          cd chain
+          cargo clippy -- -D warnings 

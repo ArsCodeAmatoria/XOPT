@@ -20,18 +20,18 @@ jobs:
           
       - name: Install dependencies
         run: |
-          cd frontend && npm ci
-          cd ../crowdloan-ui && npm ci
+          cd frontend && npm ci --legacy-peer-deps
+          cd ../crowdloan-ui && npm ci --legacy-peer-deps
           
       - name: Lint frontend
         run: |
           cd frontend
-          npm run lint
+          npm run lint -- --max-warnings=0
           
       - name: Lint crowdloan
         run: |
           cd crowdloan-ui
-          npm run lint
+          npm run lint -- --max-warnings=0
           
       - name: Install Rust toolchain
         uses: actions-rs/toolchain@v1
@@ -39,6 +39,7 @@ jobs:
           toolchain: stable
           override: true
           components: rustfmt, clippy
+          cache: true
           
       - name: Rust format check
         run: |
