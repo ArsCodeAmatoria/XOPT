@@ -20,23 +20,28 @@ export function Hero() {
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
             Join the decentralized options trading revolution. Contribute to the XOPT Protocol and earn rewards while helping build the future of DeFi.
           </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
+          <div className="mt-10 flex items-center gap-x-6">
             <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="#contribute"
-              className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              href="#learn-more"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
-              Contribute Now
-              <ArrowRight className="ml-2 h-4 w-4 inline-block" />
+              Learn More
             </motion.a>
             <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="#learn-more"
-              className="text-sm font-semibold leading-6 text-foreground"
+              href="#contribute"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contribute')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors"
             >
-              Learn more <span aria-hidden="true">→</span>
+              Contribute Now <span aria-hidden="true">→</span>
             </motion.a>
           </div>
         </motion.div>
