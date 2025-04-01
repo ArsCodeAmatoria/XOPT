@@ -1,0 +1,35 @@
+name: Build Chain
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          components: rustfmt, clippy
+          
+      - name: Cache Rust dependencies
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: chain -> target
+          
+      - name: Build chain
+        run: |
+          cd chain
+          cargo build --verbose
+          
+      - name: Run tests
+        run: |
+          cd chain
+          cargo test --verbose 

@@ -1,0 +1,51 @@
+name: Lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: |
+          cd frontend && npm ci
+          cd ../crowdloan-ui && npm ci
+          
+      - name: Lint frontend
+        run: |
+          cd frontend
+          npm run lint
+          
+      - name: Lint crowdloan
+        run: |
+          cd crowdloan-ui
+          npm run lint
+          
+      - name: Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          components: rustfmt, clippy
+          
+      - name: Rust format check
+        run: |
+          cd chain
+          cargo fmt --all -- --check
+          
+      - name: Rust clippy check
+        run: |
+          cd chain
+          cargo clippy -- -D warnings 
